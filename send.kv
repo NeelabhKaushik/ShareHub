@@ -1,0 +1,41 @@
+MDScreen:
+    name: "send"
+
+    MDFloatLayout:
+        MDIconButton:
+            icon: "arrow-left"
+            user_font_size: "35sp"
+            pos_hint: {'center_y': .95}
+            on_release: 
+                root.manager.transition.direction = "right"
+                root.manager.current = "home"
+        MDLabel:
+            text: 'back'
+            font_size: "18sp"
+            pos_hint: {'center_x': 0.615,'center_y': 0.949}
+    
+        ElementCard:
+            id: pdf
+            image:"images/upload.png"
+            text:""
+            color: 0/255,0/255,0/255
+        
+
+<ElementCard@MDCard>:
+    md_bg_color: rgba(86,67,250) #37/255, 160/255, 190/255,1
+    padding:dp(15)
+    spacing:dp(15)
+    radius:dp(25)
+    ripple_behavior: True
+    image:""
+    text:""
+    font_style: "H3"
+    orientation:'vertical'
+    Image:
+        source:root.image
+    MDBoxLayout:
+        orientation:'vertical'
+        MDLabel:
+            halign:"center"
+            text:root.text
+            font_style:"H6"

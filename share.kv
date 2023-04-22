@@ -1,0 +1,55 @@
+<MagicButton@MagicBehavior+Button>
+MDScreen:
+    name: "share"
+    MDBoxLayout:
+        orientation:'vertical'
+        MDBoxLayout:
+            padding:dp(25)
+            size_hint_y:.2
+            MDBoxLayout:
+                orientation:"vertical"
+                MDLabel:
+                    text:"ShareHub"
+                    font_style:"H3"
+                MDBoxLayout:
+                    spacing:dp(15)
+                    MDLabel:
+                        text:"Share your files"
+                        text_size:None,None
+                        adaptive_width:True
+        
+        MDGridLayout:
+            size_hint_y: .5
+            cols: 2
+            padding: [dp(15),dp(25),dp(15),dp(25)]
+            spacing: dp(15)
+
+            ElementCard:
+                id: pdf
+                image:"images/upload.png"
+                text:"Select the file"
+                color: 0/255,0/255,0/255
+                on_release: 
+                    app.file_chooser()
+                    app.send()
+                    root.manager.current = "send"
+           
+
+<ElementCard@MDCard>:
+    md_bg_color: rgba(86,67,250) #37/255, 160/255, 190/255,1
+    padding:dp(15)
+    spacing:dp(15)
+    radius:dp(25)
+    ripple_behavior: True
+    image:""
+    text:""
+    font_style: "H3"
+    orientation:'vertical'
+    Image:
+        source:root.image
+    MDBoxLayout:
+        orientation:'vertical'
+        MDLabel:
+            halign:"center"
+            text:root.text
+            font_style:"H6"
